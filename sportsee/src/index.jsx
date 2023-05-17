@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from "react-query";
 import './index.css';
-import App from './App';
+
+import DashBoard from './pages/DashBoard';
+
+import Header from './components/Header';
+import SideBar from './components/Sidebar';
+
 import reportWebVitals from './reportWebVitals';
+
+const queryClient = new QueryClient();
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+    <Router>
+      <Header/>
+      <SideBar/>
+      <DashBoard />
+    </Router>
+    </QueryClientProvider>
+
   </React.StrictMode>
 );
 

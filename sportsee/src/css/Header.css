@@ -1,0 +1,21 @@
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-menu {
+  display: contents;
+}
+.logo {
+  height: 62px;
+  width: 178px;
+}
