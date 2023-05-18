@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Navigate } from 'react-router'
 import './index.css';
 
 import DashBoard from './pages/DashBoard';
 
 import Header from './components/Header';
 import SideBar from './components/Sidebar';
+import Error404 from './pages/Error';
+import Profil from './components/Profil';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -20,8 +23,16 @@ root.render(
     <QueryClientProvider client={queryClient}>
     <Router>
       <Header/>
+      <div className="main-container">
       <SideBar/>
-      <DashBoard />
+      <main>
+      <Routes>
+      <Route exact path="/" element={<Navigate to="/profil/12/Karl" />}/>{/* Redirect to profil 12 page */}
+      <Route path="/profil/:userId/:firstname" element={<DashBoard />} />
+      <Route exact path="*" element={<Error404 />}/>
+      </Routes>
+      </main>
+        </div>
     </Router>
     </QueryClientProvider>
 
