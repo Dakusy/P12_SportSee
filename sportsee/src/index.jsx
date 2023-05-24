@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Navigate } from 'react-router'
@@ -21,19 +22,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-    <Router>
+    <BrowserRouter>
+    <div class ="app">
       <Header/>
       <div className="main-container">
       <SideBar/>
-      <main>
       <Routes>
       <Route exact path="/" element={<Navigate to="/profil/12/Karl" />}/>{/* Redirect to profil 12 page */}
       <Route path="/profil/:userId/:firstname" element={<DashBoard />} />
       <Route exact path="*" element={<Error404 />}/>
       </Routes>
-      </main>
         </div>
-    </Router>
+        </div>
+    </BrowserRouter>
     </QueryClientProvider>
 
   </React.StrictMode>

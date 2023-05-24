@@ -1,10 +1,3 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 #root {
   display: flex;
   flex-direction: column;
@@ -13,30 +6,7 @@ html {
   font-weight: 400;
 }
 
+
 .main-container {
-  flex-grow: 1;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.horizontal-nav {
-  width: 100%;
-  height: 91px;
-  background-color: #020203;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.sidebar {
-  width: 117px;
-  height: 100vh;
-  background-color: #020203;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px;
+  display:flex;
 }

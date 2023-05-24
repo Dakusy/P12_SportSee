@@ -2,6 +2,8 @@ import React from "react";
 import { Tooltip, ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, barSize, } from "recharts";
 import PropTypes from "prop-types";
 
+import "../css/Activity.css"
+
 /**
  * CustomTooltip function is used to display specific values when the mouse hovers on any bars.
  * Code source: https://recharts.org/en-US/examples/CustomContentOfTooltip 
