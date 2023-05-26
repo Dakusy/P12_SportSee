@@ -7,7 +7,6 @@ import {
   Tooltip,
   Legend,
   Line,
-  Dot,
 } from "recharts";
 import PropTypes from "prop-types";
 
@@ -19,17 +18,6 @@ const CustomizedLegend = () => {
   );
 };
 
-const CustomizedKey = ({ cx, cy, payload }) => {
-  return (
-    <g>
-      <Dot r={10} fill="white" cy={cy} cx={cx} opacity="0.5" />
-      <Dot r={4} fill="white" cy={cy} cx={cx} />
-      <text x={cx} y={cy - 20} textAnchor="middle" fill="#888">
-        {payload.sessionLength}
-      </text>
-    </g>
-  );
-};
 
 function CustomTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {

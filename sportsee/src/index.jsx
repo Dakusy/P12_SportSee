@@ -11,7 +11,7 @@ import DashBoard from './pages/DashBoard';
 import Header from './components/Header';
 import SideBar from './components/Sidebar';
 import Error404 from './pages/Error';
-import Profil from './components/Profil';
+
 
 import reportWebVitals from './reportWebVitals';
 
@@ -30,6 +30,9 @@ root.render(
       <Routes>
       <Route exact path="/" element={<Navigate to="/profil/12/Karl" />}/>{/* Redirect to profil 12 page */}
       <Route path="/profil/:userId/:firstname" element={<DashBoard />} />
+      <Route path="/profil/:userId/:firstname/activity" element={<DashBoard />} />
+      <Route path="/profil/:userId/:firstname/average-sessions" element={<DashBoard />} />
+      <Route path="/profil/:userId/:firstname/performance" element={<DashBoard />} />
       <Route exact path="*" element={<Error404 />}/>
       </Routes>
         </div>
