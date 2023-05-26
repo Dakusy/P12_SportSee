@@ -15,6 +15,8 @@ import Info from "../components/Info";
 import Performance from "../components/Perf";
 import "../css/global.css";
 
+
+
 function DashBoard() {
   const navigate = useNavigate();
   const { id, name } = useParams(); // Récupère l'ID depuis l'URL
