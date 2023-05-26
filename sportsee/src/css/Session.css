@@ -3,3 +3,14 @@
     width: 10rem;
   }
   
+  .custom-tooltip {
+    background-color: white;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+  }
+  

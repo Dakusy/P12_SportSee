@@ -23,7 +23,6 @@ const getUserSession = async (userId) => {
 export default function useUserSession(userId) {
   return useQuery(["userSession"], () => getUserSession(userId),{
     select: (data) => {
-      console.log(data)
       const formatedData = data.data.sessions.map((sessions) => ({
         day: useDay[+sessions.day - 1],
         sessionLength: sessions.sessionLength,
