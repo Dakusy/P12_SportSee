@@ -31,7 +31,19 @@ function DashBoard() {
   const filteredUserActivity = dataActivity?.USER_ACTIVITY?.find(activity => activity.userId === parseInt(idFromMatch || id));
   const filteredUserSession = dataSession?.USER_AVERAGE_SESSIONS?.find(session => session.userId === parseInt(idFromMatch || id));
   const filteredUserPerformance = dataPerformance?.USER_PERFORMANCE?.find(performance => performance.userId === parseInt(idFromMatch || id));
-  console.log(filteredUserData);
+  console.log(filteredUserPerformance);
+
+
+
+  const useDay = [
+    "L",
+    "M",
+    "M",
+    "J",
+    "V",
+    "S",
+    "D",
+  ];
 
 
   if (mock === false) {
@@ -40,13 +52,13 @@ function DashBoard() {
       return null;
     }
   }
-  else{
-      if(filteredUserData.userInfos.firstName !== nameFromMatch){
-        navigate("/error/404"); // Redirige vers la page d'erreur 404
-        return null;
-      }
+  else {
+    if (filteredUserData.userInfos.firstName !== nameFromMatch) {
+      navigate("/error/404"); // Redirige vers la page d'erreur 404
+      return null;
     }
-  
+  }
+
 
   if (mock === false) {
     return (
@@ -56,7 +68,7 @@ function DashBoard() {
           <div className="dashboard-data-container">
             <Activity activity={dataActivity?.data?.sessions} />
             <div className="dashboard-data-graph">
-              <Session sessions={dataSession?.data} />
+              <Session sessions={dataSession} />
               <Performance performance={dataPerformance?.data} />
               <Score score={dataUser?.data} />
             </div>
@@ -68,7 +80,6 @@ function DashBoard() {
       </div>
     );
   }
-
   if (mock === true) {
     return (
       <div className="dashboard">
@@ -77,8 +88,14 @@ function DashBoard() {
           <div className="dashboard-data-container">
             <Activity activity={filteredUserActivity.sessions} />
             <div className="dashboard-data-graph">
-              <Session sessions={dataSession?.data} />
-              <Performance performance={dataPerformance?.data} />
+              <Session sessions={filteredUserSession?.sessions.map(session => ({
+                day: useDay[+session.day - 1],
+                sessionLength: session.sessionLength,
+              }))} />
+              <Performance performance={filteredUserPerformance?.data.map(skill => ({
+                value: skill.value,
+                kind: filteredUserPerformance?.kind[skill.kind],
+              }))} />
               <Score score={filteredUserData} />
             </div>
           </div>

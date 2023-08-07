@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { mock } from "../services/GetUser";
+import mockBackData from "../mocks/mockBackData"; // Import the fallback JSON
 
-
-const useDay = [ 
+const useDay = [
   "L",
   "M",
   "M",
@@ -10,27 +11,26 @@ const useDay = [
   "V",
   "S",
   "D",
-]
+];
 
+const formatSessions = (sessions) => {
+  return sessions.map((session) => ({
+    day: useDay[+session.day - 1],
+    sessionLength: session.sessionLength,
+  }));
+};
 
 const getUserSession = async (userId) => {
-  const { data } = await axios.get(
-    `http://localhost:3000/user/${userId}/average-sessions`
-  );
-  return data;
+  if(mock == false){
+    const { data } = await axios.get(
+      `http://localhost:3000/user/${userId}/average-sessions`);
+    return formatSessions(data.data.sessions);
+  }
+  else {
+    return mockBackData; // Return the fallback JSON data
+  }
 };
 
 export default function useUserSession(userId) {
-  return useQuery(["userSession"], () => getUserSession(userId),{
-    select: (data) => {
-      const formatedData = data.data.sessions.map((sessions) => ({
-        day: useDay[+sessions.day - 1],
-        sessionLength: sessions.sessionLength,
-      }));
-
-      return {
-        data: formatedData,
-      };
-    },
-  });
+  return useQuery(["userSession"], () => getUserSession(userId));
 }
