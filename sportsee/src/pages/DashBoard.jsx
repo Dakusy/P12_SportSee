@@ -1,10 +1,10 @@
 import React from "react";
 import { useMatch, useParams, useNavigate } from "react-router-dom";
 
-import useUserActivity from "../components/GetUserActivity";
-import useUser from "../components/GetUser";
-import useUserSession from "../components/GetUserSession";
-import useUserPerformance from "../components/GetUserPerf";
+import useUserActivity from "../services/GetUserActivity";
+import useUser from "../services/GetUser";
+import useUserSession from "../services/GetUserSession";
+import useUserPerformance from "../services/GetUserPerf";
 
 import Profil from "../components/Profil";
 import Activity from "../components/Activity";

@@ -6,7 +6,7 @@ function Header() {
     return (
         <nav className="horizontal-nav">
           <Link to="/" className="navbar-logo">
-            <img src={logo} alt="Logo-image" className="logo" />
+            <img src={logo} alt="Logo" className="logo" />
           </Link>
     
           <ul className="nav-menu">
@@ -16,7 +16,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">
+              <Link to="/" className="nav-link">
                 Profil
               </Link>
             </li>
@@ -26,7 +26,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">
+              <Link to="/" className="nav-link">
                 Communauté
               </Link>
             </li>
