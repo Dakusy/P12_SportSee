@@ -7,7 +7,8 @@ const getUserPerformance = async (userId) => {
   if(mock == false){
   const { data } = await axios.get(
     `http://localhost:3000/user/${userId}/performance`);
-  return data;
+    const formattedData = formatPerformance(data);
+  return {data: formattedData,};
   } else {
     return mockBackData; // Return the fallback JSON data
   }

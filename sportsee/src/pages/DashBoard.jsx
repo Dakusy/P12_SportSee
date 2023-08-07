@@ -31,7 +31,6 @@ function DashBoard() {
   const filteredUserActivity = dataActivity?.USER_ACTIVITY?.find(activity => activity.userId === parseInt(idFromMatch || id));
   const filteredUserSession = dataSession?.USER_AVERAGE_SESSIONS?.find(session => session.userId === parseInt(idFromMatch || id));
   const filteredUserPerformance = dataPerformance?.USER_PERFORMANCE?.find(performance => performance.userId === parseInt(idFromMatch || id));
-  console.log(filteredUserPerformance);
 
 
 
