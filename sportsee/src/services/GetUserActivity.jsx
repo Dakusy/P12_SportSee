@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import mockBackData from "../mocks/mockBackData"; // Import the fallback JSON
 
 /**
  * In App.js we use react query, here we define a function to fetch data
@@ -8,10 +9,13 @@ import { useQuery } from "react-query";
  * the key"userId" will be same for other charts
  */
 const getUserActivity = async (userId) => {
-  const { data } = await axios.get(
-    `http://localhost:3000/user/${userId}/activity`
-  );
-  return data;
+  try {
+    const { data } = await axios.get(`http://localhost:3000/user/${userId}/activity`);
+    return data;
+  } catch (error) {
+    console.error("API request failed:", error);
+    return mockBackData; // Return the fallback JSON data
+  }
 };
 
 export default function useUserActivity(userId) {

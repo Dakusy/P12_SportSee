@@ -1,11 +1,29 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import mockBackData from "../mocks/mockBackData"; // Import the fallback JSON
+
+let mock = false;
 
 const getUser = async (userId) => {
-  const { data } = await axios.get(`http://localhost:3000/user/${userId}`);
-  return data;
+  try {
+    const { data } = await axios.get(`http://localhost:3000/user/${userId}`);
+    mock = false;
+    return data;
+  } catch (error) {
+    console.error("API request failed:", error);
+    mock = true;
+    return mockBackData; // Return the fallback JSON data
+  }
 };
 
-export default function useUser(userId) {
-  return useQuery(["user"], () => getUser(userId));
-}
+const useUser = (userId) => {
+  return useQuery(["user", userId], () => getUser(userId), {
+    onError: (error) => {
+      console.error("Error fetching user data:", error);
+      // You can also throw the error here if you want to propagate it further
+    },
+  });
+};
+
+export { useUser, mock };
+
