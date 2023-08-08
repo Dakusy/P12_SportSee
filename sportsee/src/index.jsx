@@ -23,7 +23,7 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-    <div class ="app">
+    <div className ="app">
       <Header/>
       <div className="main-container">
       <SideBar/>

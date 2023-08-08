@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { mock } from "../services/GetUser";
 import mockBackData from "../mocks/mockBackData"; // Import the fallback JSON
+import { mock } from "../services/GetUser";
 
 /**
  * In App.js we use react query, here we define a function to fetch data

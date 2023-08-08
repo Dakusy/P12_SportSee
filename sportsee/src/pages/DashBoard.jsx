@@ -5,6 +5,7 @@ import useUserActivity from "../services/GetUserActivity";
 import { useUser, mock } from "../services/GetUser";
 import useUserSession from "../services/GetUserSession";
 import useUserPerformance from "../services/GetUserPerf";
+import { useDay } from "../components/utils";
 
 import Profil from "../components/Profil";
 import Activity from "../components/Activity";
@@ -33,16 +34,6 @@ function DashBoard() {
   const filteredUserPerformance = dataPerformance?.USER_PERFORMANCE?.find(performance => performance.userId === parseInt(idFromMatch || id));
 
 
-
-  const useDay = [
-    "L",
-    "M",
-    "M",
-    "J",
-    "V",
-    "S",
-    "D",
-  ];
 
 
   if (mock === false) {

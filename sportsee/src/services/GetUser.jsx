@@ -10,7 +10,7 @@ const getUser = async (userId) => {
     mock = false;
     return data;
   } catch (error) {
-    console.error("API request failed:", error);
+    console.error("API request failed GetUser :", error);
     mock = true;
     return mockBackData; // Return the fallback JSON data
   }
